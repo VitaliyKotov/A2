@@ -4,9 +4,15 @@ import { User } from '../user/user';
 
 @Injectable()
 export class UsersService {
+    init() {
+        if(window.localStorage.users === null)
+        window.localStorage.setItem('users', JSON.stringify({}));
+    }
+
 	getUsers(): User[] {
-		return JSON.parse(window.localStorage.getItem(users))
-	} 
+        let list = JSON.parse(window.localStorage.getItem(users));
+        return list;
+	}
 
 	setUser(newUser: User[]) {
 		let usersArray = Object.keys(window.localStorage).map(function(key) { return localStorage[key] });
