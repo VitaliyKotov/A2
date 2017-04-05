@@ -7,14 +7,16 @@ import { User } from '../user/user';
 @Component({
   	selector: 'userslist',
   	templateUrl: './userslist.component.html',
-  	providers: [UsersService]
+  	providers: [UsersService],
+  	styleUrls: ['app/userslist/userslist.component.css']
 })
 
 export class UserslistComponent implements OnInit {
 
 	constructor(private usersService: UsersService) { }
 
-	ngOnInit(): void {
+	ngOnInit() :void {
         this.usersService.init();
+        $("[data-toggle=tooltip]").tooltip();
   	}
 }

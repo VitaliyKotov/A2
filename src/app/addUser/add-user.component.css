@@ -1,0 +1,13 @@
+form,
+button {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+form {
+	color: #838386;
+	margin-top: 25px;
+}
+
+label {
+	font-size: 1.2em;
+}

@@ -21,7 +21,11 @@ import { UsersService }       from './service/users.service';
         		path: 'add',
         		component: AddUserComponent
       		},
-
+            {
+                path: '',
+                redirectTo: '/users',
+                pathMatch: 'full'
+            },
     	])
   	],
   	declarations: [ MainNavigation, UserslistComponent, AddUserComponent ],

@@ -4,26 +4,32 @@ import { User } from '../user/user';
 
 @Injectable()
 export class UsersService {
-	users :User[];
+
+	users :User[] = [];
 	storage = window.localStorage;
 
     init() :void {
-        if(window.localStorage['users'] === null) {
-        	this.users = [];
-        } else {
+        if(window.localStorage['users'] !== null) {
         	this.users = JSON.parse(this.storage.getItem('users'));
         }
     }
 
-	// getUsers(): User[] {
- //        let list = JSON.parse(window.localStorage.getItem(users));
- //        return list;
-	// }
-
 	setUser(newUser: User) {
 		this.users.push(newUser);
-		// let usersArray = Object.keys(window.localStorage).map(function(key) { return localStorage[key] });
-		// usersArray.push(newUser);
-		this.storage.setItem('users', JSON.stringify(this.users));
+		this.saveToStorage(this.users));
 	}
+
+	removeUser(selectedUser :User) {
+  		this.users = this.users.filter(item => item.id !== selectedUser.id);
+  		this.saveToStorage(this.users);
+  	}
+
+  	removeAll() {
+  		this.users = [];
+  		this.storage.removeItem('users');
+  	}
+  	
+  	saveToStorage(arr :User[]) {
+  		this.storage.setItem('users', JSON.stringify(arr));
+  	}
 }

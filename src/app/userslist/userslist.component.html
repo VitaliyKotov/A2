@@ -1,1 +1,23 @@
-<h1>here will be userslist</h1>
+<div class="list-wrapper">
+    <h2 *ngIf="!usersService.users.length">Users List is empty. Click on "Add User" </h2>
+    <table *ngIf="usersService.users.length" class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usersService.users;let i=index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="usersService.removeUser(user)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

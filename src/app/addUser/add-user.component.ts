@@ -4,7 +4,8 @@ import { UsersService } from '../service/users.service';
 @Component({
   selector: 'add-user',
   templateUrl: './add-user.component.html',
-  providers: [UsersService]
+  providers: [UsersService],
+  styleUrls: ['app/addUser/add-user.component.css']
 })
 
 export class AddUserComponent {
