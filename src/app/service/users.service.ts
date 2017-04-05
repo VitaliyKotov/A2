@@ -4,13 +4,15 @@ import { User } from '../user/user';
 
 @Injectable()
 export class UsersService {
-    init() :User[] {
+	users :User[];
+	storage = window.localStorage;
+
+    init() :void {
         if(window.localStorage['users'] === null) {
-        	return [];
+        	this.users = [];
         } else {
-        	return JSON.parse(window.localStorage.getItem('users'));
+        	this.users = JSON.parse(this.storage.getItem('users'));
         }
-        
     }
 
 	// getUsers(): User[] {
@@ -19,8 +21,9 @@ export class UsersService {
 	// }
 
 	setUser(newUser: User) {
-		let usersArray = Object.keys(window.localStorage).map(function(key) { return localStorage[key] });
-		usersArray.push(newUser);
-		window.localStorage.setItem('users', JSON.stringify(usersArray));
+		this.users.push(newUser);
+		// let usersArray = Object.keys(window.localStorage).map(function(key) { return localStorage[key] });
+		// usersArray.push(newUser);
+		this.storage.setItem('users', JSON.stringify(this.users));
 	}
 }
