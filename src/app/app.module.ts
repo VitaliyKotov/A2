@@ -1,12 +1,13 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule }   from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule }    from '@angular/forms';
 
-import { MainNavigation }     from './navigation/navigation.component';
-import { UserslistComponent } from './userslist/userslist.component';
-import { AddUserComponent }   from './addUser/add-user.component';
-import { UsersService }       from './service/users.service';
+import { MainNavigation }      from './navigation/navigation.component';
+import { UserslistComponent }  from './userslist/userslist.component';
+import { AddUserComponent }    from './addUser/add-user.component';
+import { UsersService }        from './service/users.service';
+import { UserDetailsComponent } from './userDetails/user-details.component';
 
 @NgModule({
   	imports:[
@@ -21,10 +22,18 @@ import { UsersService }       from './service/users.service';
         		path: 'add',
         		component: AddUserComponent
       		},
-
+            {
+                path: '',
+                redirectTo: '/users',
+                pathMatch: 'full'
+            },
+            {
+                path: 'details/:id',
+                component: UserDetailsComponent
+            }
     	])
   	],
-  	declarations: [ MainNavigation, UserslistComponent, AddUserComponent ],
+  	declarations: [ MainNavigation, UserslistComponent, AddUserComponent, UserDetailsComponent ],
   	providers: [ UsersService ],
   	bootstrap: [ MainNavigation ]
 })

@@ -1,0 +1,23 @@
+form,
+button {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+form {
+	color: #838386;
+	margin-top: 25px;
+}
+
+label {
+	font-size: 1.2em;
+}
+
+#newName:required:valid,
+#newEmail:required:valid {
+    border-color: green;
+}
+
+#newName:focus:required:invalid,
+#newEmail:focus:required:invalid {
+    border-color: red;
+}

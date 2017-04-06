@@ -1,14 +1,19 @@
 <div class="container">
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            <h1>{{title | uppercase}}</h1>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/users">Users</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/add">Add User</a>
-        </li>
-    </ul>
+    <nav>
+        <div class="title">
+            <h3>{{title | uppercase}}</h3>
+        </div>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/users" routerLinkActive="active">USERS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/add" routerLinkActive="active">ADD USER</a>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-warning" (click)="usersService.removeAll()">Remove All</button>
+            </li>
+        </ul>
+    </nav>
     <router-outlet></router-outlet>
 </div>

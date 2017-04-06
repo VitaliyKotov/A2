@@ -1,0 +1,28 @@
+.list-wrapper,
+button {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+.list-wrapper {
+	color: #838386;
+	margin-top: 10px;
+}
+
+thead {
+	color: #000;
+	text-transform: uppercase;
+}
+
+td,
+th {
+	vertical-align: middle;
+}
+
+button {
+	font-size: 1.1em;
+}
+
+h2,
+input {
+    display: inline-flex;
+}

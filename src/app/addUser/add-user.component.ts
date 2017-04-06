@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../service/users.service';
 
 @Component({
-  selector: 'add-user',
-  templateUrl: './add-user.component.html',
-  providers: [UsersService]
+    selector: 'add-user',
+    templateUrl: './add-user.component.html',
+    providers: [UsersService],
+    styleUrls: ['app/addUser/add-user.component.css']
 })
 
-export class AddUserComponent {
+export class AddUserComponent implements OnInit{
     newName :string;
     newEmail :string;
 
     constructor(private usersService: UsersService) { }
+
+    ngOnInit() :void {
+        this.usersService.init();
+    }
 
 	addNew() {
 		let userInfo = {
@@ -20,5 +25,7 @@ export class AddUserComponent {
 			email: this.newEmail
 		}
         this.usersService.setUser(userInfo);
+        this.newName = "";
+        this.newEmail = "";
 	}
 }

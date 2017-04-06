@@ -5,18 +5,19 @@ import { User } from '../user/user';
 
 
 @Component({
-  selector: 'userslist',
-  templateUrl: './userslist.component.html',
-  providers: [UsersService]
+  	selector: 'userslist',
+  	templateUrl: './userslist.component.html',
+  	providers: [UsersService],
+  	styleUrls: ['app/userslist/userslist.component.css']
 })
 
 export class UserslistComponent implements OnInit {
-	users: User[];
 
 	constructor(private usersService: UsersService) { }
 
+	ngOnInit() :void {
+        this.usersService.init();
+  	}
 
-	ngOnInit(): void {
-        this.users = this.usersService.init();
-  }
+  	trackByUsers(index: number, user: User): number { return user.id; }
 }

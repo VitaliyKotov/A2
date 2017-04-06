@@ -1,0 +1,8 @@
+.details-wrapper,
+button {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+.details-wrapper > * {
+	margin: 10px 0;
+}
