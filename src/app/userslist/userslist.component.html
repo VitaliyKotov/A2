@@ -17,6 +17,7 @@
                 <td>
                     <button type="button" class="btn btn-warning" (click)="usersService.removeUser(user)">Remove</button>
                 </td>
+                <user-details *ngIf="usersService.selected"></user-details>
             </tr>
         </tbody>
     </table>

@@ -16,7 +16,7 @@ export class UsersService {
 
 	setUser(newUser: User) {
 		this.users.push(newUser);
-		this.saveToStorage(this.users));
+		this.saveToStorage(this.users);
 	}
 
 	removeUser(selectedUser :User) {

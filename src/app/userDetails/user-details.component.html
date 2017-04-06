@@ -1,0 +1,10 @@
+<div>
+    <h2>{{usersService.selected.name}} details!</h2>
+    <div>
+        <label>Email: </label>{{usersService.selected.email}}
+    </div>
+    <div>
+        <label>name:{{usersService.selected.name}} </label>
+    </div>
+        <input [(ngModel)]="usersService.selected.name" #nameInput placeholder="name" />
+</div>
