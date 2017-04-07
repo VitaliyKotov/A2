@@ -2,7 +2,7 @@
     <h2 *ngIf="!usersService.users.length">Users List is empty. Click on "Add User" </h2>
     <div class="list-wrapper" *ngIf="usersService.users.length">
         <h2>Users</h2>
-        <input type="text" class="form-control" placeholder="Search by Username">
+        <input type="text" class="form-control" placeholder="Search by Username" [(ngModel)]="query">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of usersService.users; let i = index; trackBy: trackByUsers">
+                <tr *ngFor="let user of (usersService.users | filterByName:query) ; let i = index; trackBy: trackByUsers">
                     <th scope="row">{{i + 1}}</th>
                     <td>
                         <a [routerLink]="['/details', user.id]">{{user.name}}</a>

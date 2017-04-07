@@ -8,6 +8,7 @@ import { UserslistComponent }  from './userslist/userslist.component';
 import { AddUserComponent }    from './addUser/add-user.component';
 import { UsersService }        from './service/users.service';
 import { UserDetailsComponent } from './userDetails/user-details.component';
+import { FilterByName } from './pipe/filterByName.pipe';
 
 @NgModule({
   	imports:[
@@ -33,7 +34,7 @@ import { UserDetailsComponent } from './userDetails/user-details.component';
             }
     	])
   	],
-  	declarations: [ MainNavigation, UserslistComponent, AddUserComponent, UserDetailsComponent ],
+  	declarations: [ MainNavigation, UserslistComponent, AddUserComponent, UserDetailsComponent, FilterByName ],
   	providers: [ UsersService ],
   	bootstrap: [ MainNavigation ]
 })

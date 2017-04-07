@@ -1,12 +1,12 @@
 <form>
     <div class="form-group">
         <label for="newName">Enter username</label>
-       <input type="text" id="newName" class="form-control" required minlength="4" maxlength="24" name="newName" placeholder="name" #newName/>
+       <input type="text" id="newName" class="form-control" required minlength="4" maxlength="24" name="newName" placeholder="name" [(ngModel)]="newName"/>
     </div>
     <div class="form-group">
         <label for="newEmail">Email address</label>
         <input type="email" id="newEmail" class="form-control" required minlength="4" maxlength="24" name="newEmail"
-        placeholder="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #newEmail/>
+        placeholder="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="newEmail"/>
     </div>
     <button type="button" class="btn btn-primary" (click)="addNew()">Add User</button>
 </form>
