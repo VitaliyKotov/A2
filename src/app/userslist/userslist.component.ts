@@ -11,7 +11,7 @@ import { User } from '../user/user';
 })
 
 export class UserslistComponent implements OnInit {
-    query :string;
+    query :string; 	
 
 	constructor(private usersService: UsersService) { }
 

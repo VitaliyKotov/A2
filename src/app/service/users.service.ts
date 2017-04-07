@@ -5,10 +5,11 @@ import { User } from '../user/user';
 @Injectable()
 export class UsersService {
 
+
 	users :User[];
 	storage = window.localStorage;
-    selected :User;
-    selectedIndex :number;
+  selected :User;
+  selectedIndex :number;
 
     init() :void {
         if(window.localStorage['users'] !== null) {
@@ -42,7 +43,6 @@ export class UsersService {
                 return true;
             } 
         })[0] // filter returns array and we need the first element in it
-        console.log(this.selected)
     }
 
     saveChanges() {
