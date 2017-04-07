@@ -11,3 +11,13 @@ form {
 label {
 	font-size: 1.2em;
 }
+
+#newName:required:valid,
+#newEmail:required:valid {
+    border-color: green;
+}
+
+#newName:focus:required:invalid,
+#newEmail:focus:required:invalid {
+    border-color: red;
+}

@@ -5,8 +5,11 @@ import { User } from '../user/user';
 @Injectable()
 export class UsersService {
 
-	users :User[] = [];
+
+	users :User[];
 	storage = window.localStorage;
+  selected :User;
+  selectedIndex :number;
 
     init() :void {
         if(window.localStorage['users'] !== null) {
@@ -32,4 +35,17 @@ export class UsersService {
   	saveToStorage(arr :User[]) {
   		this.storage.setItem('users', JSON.stringify(arr));
   	}
+
+    getUserDetails(id :number) {
+        this.selected = this.users.filter((item, index) => {
+            if(item.id === id) {
+                this.selectedIndex = index;
+                return true;
+            } 
+        })[0] // filter returns array and we need the first element in it
+    }
+
+    saveChanges() {
+        this.saveToStorage(this.users)
+    }
 }

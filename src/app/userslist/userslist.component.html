@@ -1,24 +1,30 @@
-<div class="list-wrapper">
+<div>
     <h2 *ngIf="!usersService.users.length">Users List is empty. Click on "Add User" </h2>
-    <table *ngIf="usersService.users.length" class="table table-hover">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>UserName</th>
-                <th>Email</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of usersService.users;let i=index">
-                <th scope="row">{{i + 1}}</th>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>
-                    <button type="button" class="btn btn-warning" (click)="usersService.removeUser(user)">Remove</button>
-                </td>
-                <user-details *ngIf="usersService.selected"></user-details>
-            </tr>
-        </tbody>
-    </table>
+    <div class="list-wrapper" *ngIf="usersService.users.length">
+        <h2>Users</h2>
+        <input type="text" class="form-control" placeholder="Search by Username" [(ngModel)]="query">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of (usersService.users | filterByName:query) ; let i = index; trackBy: trackByUsers">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>
+                        <a [routerLink]="['/details', user.id]">{{user.name}}</a>
+                    </td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="usersService.removeUser(user)">Remove</button>
+                    </td>
+                    <user-details *ngIf="usersService.selected"></user-details>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

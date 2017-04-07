@@ -21,3 +21,9 @@ th {
 button {
 	font-size: 1.1em;
 }
+
+h2,
+input {
+    display: inline-flex;
+}
+
