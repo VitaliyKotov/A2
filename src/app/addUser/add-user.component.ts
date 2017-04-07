@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
+
 import { UsersService } from '../service/users.service';
 
 @Component({
@@ -12,7 +14,10 @@ export class AddUserComponent implements OnInit{
     newName :string;
     newEmail :string;
 
-    constructor(private usersService: UsersService) { }
+    constructor(
+        private usersService: UsersService,
+        private _location: Location
+        ) { }
 
     ngOnInit() :void {
         this.usersService.init();
@@ -28,4 +33,8 @@ export class AddUserComponent implements OnInit{
         this.newName = "";
         this.newEmail = "";
 	}
+
+    prevPage() {
+        this._location.back();
+    }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 
 import { UsersService }      from '../service/users.service';
 import { User }              from '../user/user';
@@ -14,7 +15,8 @@ import { User }              from '../user/user';
 export class UserDetailsComponent implements OnInit {
 
 	constructor(
-		private usersService: UsersService
+		private usersService: UsersService,
+        private _location: Location
 	) { }
 
 	ngOnInit(): void {
@@ -22,4 +24,8 @@ export class UserDetailsComponent implements OnInit {
 		let id = +window.location.href.slice(-7);
   		this.usersService.getUserDetails(id);
 	}
+
+    prevPage() {
+        this._location.back();
+    }
 }
