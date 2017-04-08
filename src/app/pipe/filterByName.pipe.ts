@@ -10,7 +10,7 @@ import { User } from '../user/user';
 export class FilterByName implements PipeTransform {
     transform(users: User[], args: string): User[] {
         if(args) {
-            return users.filter(item => item.name.indexOf(args[0]) !== -1);
+            return users.filter(item => item.name.indexOf(args) !== -1);
         } else {
             return users;
         }
