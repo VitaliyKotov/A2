@@ -1,8 +1,3 @@
-.list-wrapper,
-button {
-	font-family: 'Titillium Web', sans-serif;
-}
-
 .list-wrapper {
 	color: #838386;
 	margin-top: 10px;
@@ -13,8 +8,8 @@ thead {
 	text-transform: uppercase;
 }
 
-td,
-th {
+.table thead th,
+.table thead td {
 	vertical-align: middle;
 }
 

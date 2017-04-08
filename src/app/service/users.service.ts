@@ -8,12 +8,14 @@ export class UsersService {
 
 	users :User[];
 	storage = window.localStorage;
-  selected :User;
-  selectedIndex :number;
+    selected :User;
 
     init() :void {
-        if(window.localStorage['users'] !== null) {
+        if(this.storage['users'] !== undefined) {
         	this.users = JSON.parse(this.storage.getItem('users'));
+        }
+        else if(this.users === undefined) {
+            this.users = [];
         }
     }
 
@@ -31,21 +33,16 @@ export class UsersService {
   		this.users = [];
   		this.storage.removeItem('users');
   	}
-  	
+
   	saveToStorage(arr :User[]) {
   		this.storage.setItem('users', JSON.stringify(arr));
   	}
 
     getUserDetails(id :number) {
-        this.selected = this.users.filter((item, index) => {
-            if(item.id === id) {
-                this.selectedIndex = index;
-                return true;
-            } 
-        })[0] // filter returns array and we need the first element in it
+        this.selected = this.users.filter(item => item.id === id)[0] // filter returns array and we need the first element in it
     }
 
     saveChanges() {
-        this.saveToStorage(this.users)
+        this.saveToStorage(this.users);
     }
 }
