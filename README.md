@@ -1,5 +1,5 @@
 # A2
-Angular 2
+Angular 2 User managment app
 
 ## All data stores in localStorage
 
