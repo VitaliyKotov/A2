@@ -3,6 +3,12 @@ Angular 2 User managment app
 
 ## All data stores in localStorage
 
-### to run - npm run serve
+## to run :
 
-### to clear localStorage click "Clear storage" button on the top 
+### - git clone
+
+### - npm run build
+
+### - npm run serve
+
+### to remove object with App data from localStorage click "Clear storage" button on the top 
